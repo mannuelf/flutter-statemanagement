@@ -15,15 +15,6 @@ class TasksList extends StatelessWidget {
       TasksTile(),
       TasksTile(),
       TasksTile(),
-      ListTile(
-        title: Text(
-          'This is a task',
-        ),
-        trailing: Checkbox(
-          value: false,
-          onChanged: (bool? value) {},
-        ),
-      ),
     ]);
   }
 }
