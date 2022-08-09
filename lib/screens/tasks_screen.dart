@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:statemanagement/widgets/tasks_list.dart';
@@ -12,8 +12,15 @@ class TasksScreen extends StatelessWidget {
       backgroundColor: Colors.lightBlue,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
-        onPressed: (() {
+        onPressed: (() async {
           print('Item added');
+          await showModalBottomSheet(
+            context: context,
+            builder: (context) => Container(
+              height: 400,
+              child: Text('Hellooo'),
+            ),
+          );
         }),
         child: Icon(Icons.add),
       ),
