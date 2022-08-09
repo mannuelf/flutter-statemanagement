@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,29 @@ class AddTasksScreen extends StatelessWidget {
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0),
             topRight: Radius.circular(20.0),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                'Add Task',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30.0, color: Colors.lightBlue),
+              ),
+              TextField(
+                autofocus: true,
+                textAlign: TextAlign.center,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print('adding as task');
+                },
+                child: Text('ADD TASK'),
+              )
+            ],
           ),
         ),
       ),
