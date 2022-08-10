@@ -23,7 +23,7 @@ class _TasksTileState extends State<TasksTile> {
       ),
       trailing: TaskCheckbox(
         checkboxState: isChecked,
-        toggleCheckboxState: <Function>(bool checkboxState) {
+        toggleCheckboxState: (checkboxState) {
           setState(() {
             isChecked = checkboxState;
           });
@@ -48,7 +48,9 @@ class TaskCheckbox extends StatelessWidget {
     return Checkbox(
       value: checkboxState,
       activeColor: Colors.lightBlueAccent,
-      onChanged: toggleCheckboxState,
+      onChanged: ((value) {
+        toggleCheckboxState;
+      }),
     );
   }
 }
