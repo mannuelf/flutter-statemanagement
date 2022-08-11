@@ -64,7 +64,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  tasks.length.toString(),
+                  '${tasks.length.toString()} tasks',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
