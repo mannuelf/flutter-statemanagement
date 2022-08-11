@@ -22,7 +22,7 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.green,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         onPressed: (() async {
@@ -68,7 +68,7 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
+              padding: EdgeInsets.all(30.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(

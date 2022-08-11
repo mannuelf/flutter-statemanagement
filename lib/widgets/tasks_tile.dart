@@ -26,7 +26,10 @@ class TasksTile extends StatelessWidget {
         value: isChecked,
         activeColor: Colors.lightBlueAccent,
         onChanged: ((value) {
-          checkboxCallback;
+          print('🧈 Checkbox sending the new state down');
+          print(value);
+          checkboxCallback(value);
+          print('============================\n');
         }),
       ),
     );
