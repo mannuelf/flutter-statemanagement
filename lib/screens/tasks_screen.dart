@@ -26,12 +26,15 @@ class _TasksScreenState extends State<TasksScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         onPressed: (() async {
-          print('Open modal');
           await showModalBottomSheet(
             context: context,
-            builder: (context) => AddTasksScreen((newTaskTitle) {
-              print(newTaskTitle);
-            }),
+            builder: (context) => AddTasksScreen(
+              addTaskCallback: (newTaskTitle) {
+                setState(() {
+                  tasks.add(Task(name: newTaskTitle, isDone: false));
+                });
+              },
+            ),
           );
         }),
         child: Icon(Icons.add),

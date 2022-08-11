@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:statemanagement/models/task.dart';
 import 'package:statemanagement/widgets/tasks_tile.dart';
@@ -28,7 +27,6 @@ class _TasksListState extends State<TasksList> {
           checkboxCallback: (bool checkboxState) {
             setState(() {
               widget.tasks[index].isDone = checkboxState;
-              print(widget.tasks[index].isDone);
             });
           },
         );

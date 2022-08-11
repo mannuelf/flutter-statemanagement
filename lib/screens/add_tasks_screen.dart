@@ -12,7 +12,7 @@ class AddTasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String newTaskTitle;
+    String newTaskTitle = '';
 
     return Container(
       color: Color(0xFF757575),
@@ -46,6 +46,7 @@ class AddTasksScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   print('adding as task');
+                  addTaskCallback(newTaskTitle);
                 },
                 child: Text('ADD TASK'),
               )
