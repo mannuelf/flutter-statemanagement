@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class TasksTile extends StatelessWidget {
@@ -7,12 +6,12 @@ class TasksTile extends StatelessWidget {
   final String taskTitle;
   final Function checkboxCallback;
 
-  const TasksTile(
-      {Key? key,
-      required this.isChecked,
-      required this.taskTitle,
-      required this.checkboxCallback})
-      : super(key: key);
+  const TasksTile({
+    Key? key,
+    required this.isChecked,
+    required this.taskTitle,
+    required this.checkboxCallback,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,8 @@ class TasksTile extends StatelessWidget {
       title: Text(
         taskTitle,
         style: TextStyle(
-            decoration: isChecked ? TextDecoration.lineThrough : null),
+          decoration: isChecked ? TextDecoration.lineThrough : null,
+        ),
       ),
       trailing: Checkbox(
         value: isChecked,

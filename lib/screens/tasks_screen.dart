@@ -1,11 +1,23 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:statemanagement/models/task.dart';
 import 'package:statemanagement/screens/add_tasks_screen.dart';
 import 'package:statemanagement/widgets/tasks_list.dart';
 
-class TasksScreen extends StatelessWidget {
+class TasksScreen extends StatefulWidget {
   const TasksScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TasksScreen> createState() => _TasksScreenState();
+}
+
+class _TasksScreenState extends State<TasksScreen> {
+  List<Task> tasks = [
+    Task(name: 'Buy bread', isDone: false),
+    Task(name: 'Watch movie ', isDone: false),
+    Task(name: 'Buy Break', isDone: false),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +26,7 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         onPressed: (() async {
-          print('Item added');
+          print('Open modal');
           await showModalBottomSheet(
             context: context,
             builder: (context) => AddTasksScreen(),
@@ -64,7 +76,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(tasks: tasks),
             ),
           )
         ],
