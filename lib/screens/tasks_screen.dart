@@ -29,7 +29,9 @@ class _TasksScreenState extends State<TasksScreen> {
           print('Open modal');
           await showModalBottomSheet(
             context: context,
-            builder: (context) => AddTasksScreen(),
+            builder: (context) => AddTasksScreen((newTaskTitle) {
+              print(newTaskTitle);
+            }),
           );
         }),
         child: Icon(Icons.add),

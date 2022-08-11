@@ -26,14 +26,9 @@ class _TasksListState extends State<TasksList> {
           isChecked: widget.tasks[index].isDone,
           taskTitle: widget.tasks[index].name,
           checkboxCallback: (bool checkboxState) {
-            print('🥐 TasksTile checkboxCallback');
             setState(() {
-              print('Current state:');
-              print(widget.tasks[index].isDone);
               widget.tasks[index].isDone = checkboxState;
-              print('New state:');
               print(widget.tasks[index].isDone);
-              print('============================\n');
             });
           },
         );
