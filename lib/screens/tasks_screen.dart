@@ -33,6 +33,8 @@ class _TasksScreenState extends State<TasksScreen> {
                 setState(() {
                   tasks.add(Task(name: newTaskTitle, isDone: false));
                 });
+                // closes the modal
+                Navigator.pop(context);
               },
             ),
           );
@@ -62,7 +64,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  '12  Tasks',
+                  tasks.length.toString(),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
