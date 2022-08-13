@@ -1,14 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:statemanagement/models/task_data.dart';
 
 class AddTasksScreen extends StatelessWidget {
-  final Function addTaskCallback;
-
-  const AddTasksScreen({
-    Key? key,
-    required this.addTaskCallback,
-  }) : super(key: key);
+  const AddTasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +35,13 @@ class AddTasksScreen extends StatelessWidget {
                 autofocus: true,
                 textAlign: TextAlign.center,
                 onChanged: (newText) {
-                  print('TextField');
                   newTaskTitle = newText;
-                  print('============================\n');
                 },
               ),
               ElevatedButton(
                 onPressed: () {
-                  print('adding as task');
-                  addTaskCallback(newTaskTitle);
+                  Provider.of<TaskData>(context).addTask(newTaskTitle);
+                  Navigator.pop(context);
                 },
                 child: Text('ADD TASK'),
               )

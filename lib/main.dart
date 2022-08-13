@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      // ChangeNotfier Proveder give all childred taskData
+      // ChangeNotifier Provider give all children taskData
       create: (context) => TaskData(),
       child: const MaterialApp(
         home: TasksScreen(),

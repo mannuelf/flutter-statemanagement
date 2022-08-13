@@ -20,9 +20,7 @@ class TasksScreen extends StatelessWidget {
             context: context,
             builder: (context) => AddTasksScreen(
               addTaskCallback: (newTaskTitle) {
-                //setState(() {
-                //  tasks.add(Task(name: newTaskTitle, isDone: false));
-                //});
+                //
                 // closes the modal
                 Navigator.pop(context);
               },
