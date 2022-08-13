@@ -15,18 +15,19 @@ class TasksScreen extends StatelessWidget {
       backgroundColor: Colors.green,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
-        onPressed: (() async {
-          await showModalBottomSheet(
+        onPressed: () {
+          showModalBottomSheet(
             context: context,
-            builder: (context) => AddTasksScreen(
-              addTaskCallback: (newTaskTitle) {
-                //
-                // closes the modal
-                Navigator.pop(context);
-              },
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTasksScreen(),
+              ),
             ),
           );
-        }),
+        },
         child: Icon(Icons.add),
       ),
       body: Column(
