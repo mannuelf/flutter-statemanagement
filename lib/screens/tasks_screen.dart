@@ -1,23 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:statemanagement/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:statemanagement/models/task_data.dart';
 import 'package:statemanagement/screens/add_tasks_screen.dart';
 import 'package:statemanagement/widgets/tasks_list.dart';
 
-class TasksScreen extends StatefulWidget {
+class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
-
-  @override
-  State<TasksScreen> createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: 'Buy bread', isDone: false),
-    Task(name: 'Watch movie ', isDone: false),
-    Task(name: 'Buy Break', isDone: false),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +20,9 @@ class _TasksScreenState extends State<TasksScreen> {
             context: context,
             builder: (context) => AddTasksScreen(
               addTaskCallback: (newTaskTitle) {
-                setState(() {
-                  tasks.add(Task(name: newTaskTitle, isDone: false));
-                });
+                //setState(() {
+                //  tasks.add(Task(name: newTaskTitle, isDone: false));
+                //});
                 // closes the modal
                 Navigator.pop(context);
               },
@@ -64,7 +54,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  '${tasks.length.toString()} tasks',
+                  '${Provider.of<TaskData>(context).tasks.length.toString()} tasks',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
@@ -83,7 +73,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(tasks: tasks),
+              child: TasksList(),
             ),
           )
         ],
